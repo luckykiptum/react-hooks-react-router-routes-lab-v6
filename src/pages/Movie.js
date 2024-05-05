@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { movies } from "../data";
 
-function Movie() {
+function Movies() {
   return (
-    <>
-      <header>
-        {/* What component should go here? */}
-      </header>
-      <main>
-        {/* Movie info here! */}
-      </main>
-    </>
+    <div>
+      <h1>Movies Page</h1>
+      {movies.map((movie, index) => (
+        <div key={index}>
+          <h2>{movie.title}</h2>
+          <p>Time: {movie.time}</p>
+          <ul>
+            {movie.genres.map((genre, genreIndex) => (
+              <li key={genreIndex}>{genre}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   );
-};
+}
 
-export default Movie;
+export default Movies;
